@@ -20,7 +20,7 @@ const onStudentIdChange = useCallback((e:ChangeEvent<HTMLInputElement>)=>{
 },[])
 
 
-//const focusDuringBegining = useCallback((el:HTMLInputElement)=>{el.focus(); studentNameRef.current=el},[])
+//const focusDuringBegining = useCallback((el:HTMLInputElement)=>{el.focus(); studentNameRef.current=el},[]) Raji
 
     return (
         <>
