@@ -1,4 +1,5 @@
 import { useCallback, useRef,FormEvent, ChangeEvent, useState } from 'react'
+import StringInputField from '../StringInputField/StringInputField';
 const StudentForm = () => {
 
 const [studentId,setStudentId]=useState<number>(0);
@@ -20,7 +21,7 @@ const onStudentIdChange = useCallback((e:ChangeEvent<HTMLInputElement>)=>{
 },[])
 
 
-//const focusDuringBegining = useCallback((el:HTMLInputElement)=>{el.focus(); studentNameRef.current=el},[]) Raji
+//const focusDuringBegining = useCallback((el:HTMLInputElement)=>{el.focus(); studentNameRef.current=el},[])
 
     return (
         <>
@@ -32,10 +33,9 @@ const onStudentIdChange = useCallback((e:ChangeEvent<HTMLInputElement>)=>{
   {/*                       <input ref={focusDuringBegining}/>
                     <input  ref={(el:HTMLInputElement)=>{el.focus(); studentNameRef.current=el}} type="text"  placeholder="StudentName" ></input>
  */}                </div>
-                <div>
-                    <label> StudentID</label>
-                    <input   placeholder="StudentID" value ={studentId} onChange={onStudentIdChange}></input>
-                </div>
+                
+                    {/* <input   placeholder="StudentID" value ={studentId} onChange={onStudentIdChange}></input> */}
+                    <StringInputField label="Student ID" placeholder="Enter Student ID"></StringInputField>
                 <div >
                     <label> Student Class</label>
                     <input type="text"  placeholder="StudentClass"></input>
