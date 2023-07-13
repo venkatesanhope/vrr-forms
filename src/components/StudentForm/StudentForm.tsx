@@ -1,6 +1,11 @@
 import { useCallback, useRef, FormEvent, ChangeEvent, useState } from 'react'
 import StringInputField from '../StringInputField/StringInputField';
 import RadioInputField from '../RadioInputField/RadioInputField';
+import SelectDropDown from '../SelectDropDown/SelectDropDown';
+
+const listState = ['Tamil nadu', 'Kerala', 'Goa', 'west bengal', 'Assam'];
+const colors = ['Red', 'Green'];
+
 const StudentForm = () => {
 
     const [studentId, setStudentId] = useState<number>(0);
@@ -62,9 +67,13 @@ const StudentForm = () => {
                 </div>
                 <div className="form-group">
                 <RadioInputField label="3" radioid="option3" radiooption="disabled"></RadioInputField>
+                </div> 
+                <div>
+                    <SelectDropDown collectionOfData={listState} label="State"></SelectDropDown>
                 </div>
-
-               
+                <div>
+                    <SelectDropDown collectionOfData={colors} label="Colors"></SelectDropDown>
+                </div>       
                 <button type="submit"  >FormSubmit</button>
             </form>
         </>
