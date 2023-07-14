@@ -1,13 +1,17 @@
+import { ChangeEvent, useCallback } from "react";
 
 function CheckBox(props:any) { 
-  const {name, label, value} = props;
+  const {id, name, label, value, checked, onCheckBoxChange} = props;
+  const onLocalCheckBoxChange = useCallback((e:ChangeEvent<HTMLInputElement>)=>{
+    onCheckBoxChange({id, changes:{checked:e.target.checked}})
+  },[id, onCheckBoxChange])
   return (
     <div>
     <input
       type="checkbox"
-      id="{name}"
-      name="{name}"
-      value="{value}" />
+      name={name}
+      checked={checked}
+      onChange={onLocalCheckBoxChange}/>
     <label>{label}</label>
   </div>
   ); 

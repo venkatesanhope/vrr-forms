@@ -1,6 +1,6 @@
 import { useCallback, useRef, FormEvent, ChangeEvent, useState } from 'react'
 import StringInputField from '../StringInputField/StringInputField';
-import CheckBox from '../CheckBox/CheckBox';
+import CheckBoxes from '../CheckBoxes/CheckBoxes';
 const StudentForm = () => {
 
     const [studentId, setStudentId] = useState<number>(0);
@@ -20,6 +20,9 @@ const StudentForm = () => {
 
 
     }, [])
+    const onStudentInputChange = useCallback ((outputdata:any)=>{
+        console.log(outputdata);
+    },[]) 
 
 
     //const focusDuringBegining = useCallback((el:HTMLInputElement)=>{el.focus(); studentNameRef.current=el},[])
@@ -30,16 +33,19 @@ const StudentForm = () => {
 
                 <div className="form-group">
                     <label> StudentName</label>
-                    <input className="form-control" ref={studentNameRef} type="text" placeholder="StudentName" ></input>
+                <div className="form-group">
+                    <StringInputField name="studentName" label="Student Name" placeholder="Enter Student Name" onChange={onStudentInputChange}></StringInputField>
+                </div>
+                    {/* <input className="form-control" ref={studentNameRef} type="text" placeholder="StudentName" ></input> */}
                     {/*                       <input ref={focusDuringBegining}/>
                     <input  ref={(el:HTMLInputElement)=>{el.focus(); studentNameRef.current=el}} type="text"  placeholder="StudentName" ></input>
  */}                </div>
 
                 {/* <input   placeholder="StudentID" value ={studentId} onChange={onStudentIdChange}></input> */}
                 <div className="form-group">
-                    <StringInputField label="Student ID" placeholder="Enter Student ID"></StringInputField>
+                    <StringInputField name="studentId" label="Student ID" placeholder="Enter Student ID" onChange={onStudentInputChange}></StringInputField>
                 </div>
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label> Student Class</label>
                     <input className="form-control" type="text" placeholder="StudentClass"></input>
                 </div>
@@ -51,12 +57,11 @@ const StudentForm = () => {
                         <option value="C">C </option>
                         <option value="D">D </option>
                     </select>
-                </div>
+                </div> */}
                 <div>
                 <label>Hobbies</label>
-                <CheckBox name="hobby1" label="Playing" value="bike"/> 
-                <CheckBox name="hobby2" label="Reading" value="bike"/> 
-                <CheckBox name="hobby3" label="cooking" value="bike"/> 
+                <CheckBoxes inputs={[{id:"1", name:"hobby1", label:"playing", value:"bike", checked:false}, {id:"2", name:"hobby2", label:"Reading", value:"read", checked:true}]} onChange={onStudentInputChange}></CheckBoxes>
+              
                 </div>
                 <button type="submit"  >FormSubmit</button>
             </form>
