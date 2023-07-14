@@ -1,5 +1,6 @@
 import { useCallback, useRef,FormEvent, ChangeEvent, useState } from 'react'
 import StringInputField from '../StringInputField/StringInputField';
+import CheckBox from '../CheckBox/CheckBox';
 const StudentForm = () => {
 
 const [studentId,setStudentId]=useState<number>(0);
@@ -49,7 +50,10 @@ const onStudentIdChange = useCallback((e:ChangeEvent<HTMLInputElement>)=>{
                         <option value="D">D </option>
                     </select>
                 </div>
+                <div>
+                <CheckBox name="vehicle1" label="I have bike" value="bike"/> 
 
+                </div> 
                 <button type="submit"  >FormSubmit</button>
             </form>
         </>
